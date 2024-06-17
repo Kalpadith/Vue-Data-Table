@@ -1,10 +1,10 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <DataTable msg="Welcome to Your Vue.js App"/>
+  <DataTable />
 </template>
 
 <script>
-import DataTable from './components/DataTable.vue'
+import DataTable from './components/DataTable.vue';
 
 export default {
   name: 'App',
