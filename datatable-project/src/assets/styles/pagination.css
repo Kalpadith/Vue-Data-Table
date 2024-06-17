@@ -1,0 +1,59 @@
+
+/*styles for page navigation buttons*/
+.previous-button {
+    padding: 5px;
+    border: 1px solid #94efa8;
+    margin: 5px;
+    width: 90px;
+    height: 25px;
+    background-color:#94efa8 ;
+    font-weight:bold;
+    color: black;
+
+  }
+  .previous-button:hover {
+    background-color: #06f722; 
+  }
+
+  .next-button {
+    padding: 5px;
+    border: 1px solid #94efa8;
+    margin: 5px;
+    width: 90px;
+    height: 25px;
+    background-color:#94efa8 ;
+    font-weight:bold;
+    color: black;
+  }
+  .next-button:hover {
+    background-color: #06f722; 
+  }
+ 
+  /* styles for page size selection dropdown */
+  .select-container {
+    display: inline-block;
+    margin-right: 3px; 
+  }
+  .select-text-container {
+    display: inline-block;
+    margin-right: 5px; 
+    margin-left: 20px
+  }
+  .custom-select {
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 70px; 
+  }
+
+  .custom-option {
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+  }
+
+  .custom-option:hover {
+    background-color: #069ff7; 
+  }
+ 
