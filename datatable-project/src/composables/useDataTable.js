@@ -1,4 +1,4 @@
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, watch } from 'vue';
 import axios from 'axios';
 
 export default function useDataTable() {
@@ -7,7 +7,7 @@ export default function useDataTable() {
   const searchQuery = ref('');
   const rowsPerPage = ref(10);
   const currentPage = ref(1);
-  const sortKey = ref('');
+  const sortKey = ref('id');
   const sortOrder = ref('asc');
   const debounceTimeout = ref(null);
 
@@ -76,16 +76,20 @@ export default function useDataTable() {
     }
   };
 
-  const debounceSearch = () => {
+  const debounceSearch = (value) => {
     if (debounceTimeout.value) clearTimeout(debounceTimeout.value);
     debounceTimeout.value = setTimeout(() => {
-      currentPage.value = 1;
+      searchQuery.value = value;
     }, 300);
   };
 
   const removeComment = (id) => {
     comments.value = comments.value.filter(comment => comment.id !== id);
   };
+
+  watch([sortKey, sortOrder], () => {
+    currentPage.value = 1;
+  });
 
   return {
     comments,
@@ -101,5 +105,7 @@ export default function useDataTable() {
     sortTable,
     debounceSearch,
     removeComment,
+    sortKey,
+    sortOrder
   };
 }

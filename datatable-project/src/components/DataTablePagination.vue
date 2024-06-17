@@ -16,4 +16,4 @@ export default {
   },
 };
 </script>
-<style src="../styles/pagination.css"></style>
+<style src="../assets/styles/pagination.css"></style>

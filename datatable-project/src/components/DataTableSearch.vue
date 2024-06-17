@@ -15,4 +15,4 @@ export default {
   },
 };
 </script>
-<style src="../styles/searchBar.css"></style>
+<style src="../assets/styles/searchBar.css"></style>

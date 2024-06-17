@@ -1,26 +1,37 @@
 <template>
   <div>
-    <h1>Comments DataTable</h1>
+    <h1 class="header">Comments DataTable</h1>
 
     <div v-if="loading">Loading...</div>
 
     <div v-else>
       <DataTableSearch
         :searchQuery="searchQuery"
-        @update:searchQuery="searchQuery = $event"
-        :debounceSearch="debounceSearch"
+        @update:searchQuery="debounceSearch($event)"
       />
       <div class="select-text-container">
         <span>Page Size:</span>
       </div>
       <div class="select-container">
-    <select class="custom-select" v-model="rowsPerPage">
-      <option class="custom-option" value="10">10</option>
-      <option class="custom-option" value="15">15</option>
-      <option class="custom-option" value="20">20</option>
-      <option class="custom-option" value="all">All</option>
-    </select>
-    </div>
+        <select class="custom-select" v-model="rowsPerPage">
+          <option class="custom-option" value="10">10</option>
+          <option class="custom-option" value="15">15</option>
+          <option class="custom-option" value="20">20</option>
+          <option class="custom-option" value="all">All</option>
+        </select>
+      </div>
+
+      <div class="sort-container">
+        <span>Sort By:</span>
+        <select v-model="sortKey">
+          <option value="id">ID</option>
+          <option value="email">Email</option>
+        </select>
+        <select v-model="sortOrder">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
 
       <table>
         <DataTableHeader :sortTable="sortTable" />
@@ -31,8 +42,8 @@
             <td>{{ comment.name }}</td>
             <td>{{ comment.body }}</td>
             <td>
-              <button class = "update-button" @click="editComment(comment)">Edit</button>
-              <button class = "delete-button" @click="removeComment(comment.id)">Remove</button>
+              <button class="update-button" @click="editComment(comment)">Edit</button>
+              <button class="delete-button" @click="removeComment(comment.id)">Remove</button>
             </td>
           </tr>
         </tbody>
@@ -59,8 +70,8 @@
           <label for="editBody">Body</label>
           <textarea id="editBody" v-model="editForm.body"></textarea>
 
-          <button type="submit">Save</button>
-          <button type="button" @click="cancelEdit">Cancel</button>
+          <button class="save-button" type="submit">Save</button>
+          <button class="cancel-button" type="button" @click="cancelEdit">Cancel</button>
         </form>
       </div>
     </div>
@@ -95,9 +106,11 @@ export default {
       sortTable,
       debounceSearch,
       removeComment,
+      sortKey,
+      sortOrder,
+      comments,
     } = useDataTable();
 
-    const comments = ref([]);
     const isEditing = ref(false);
     const editForm = ref({
       id: null,
@@ -141,9 +154,13 @@ export default {
       editComment: startEdit,
       saveEdit,
       cancelEdit,
+      sortKey,
+      sortOrder,
     };
   },
 };
 </script>
-<style src="../styles/dataTable.css"></style>
-<style src="../styles/pagination.css"></style>
+
+<style src="../assets/styles/dataTable.css"></style>
+<style src="../assets/styles/pagination.css"></style>
+
