@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button @click="prevPage" :disabled="currentPage <= 1">Previous</button>
+    <button class="previous-button" @click="prevPage" :disabled="currentPage <= 1">&lt;&lt; Previous</button>
     <span>Page {{ currentPage }} of {{ totalPages }}</span>
-    <button @click="nextPage" :disabled="currentPage >= totalPages">Next</button>
+    <button class="next-button" @click="nextPage" :disabled="currentPage >= totalPages">Next &gt;&gt;</button>
   </div>
 </template>
 
@@ -16,3 +16,4 @@ export default {
   },
 };
 </script>
+<style src="../styles/pagination.css"></style>

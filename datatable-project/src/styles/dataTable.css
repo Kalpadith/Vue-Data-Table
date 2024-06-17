@@ -1,18 +1,93 @@
+/*Styles for table*/
 table {
     width: 100%;
     border-collapse: collapse;
   }
   
-  th, td {
+  td {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 3px solid #9a96bb;
   }
-  
+  th {
+    padding: 10px;
+    border: 3px solid #9a96bb;
+    background-color: #94efa8 ;
+  }
   input {
     margin-bottom: 10px;
   }
   
-  button {
+  .update-button {
+    padding: 10px;
+    border: 1px solid #000000;
     margin: 5px;
+    width: 100px;
+    height: 40px;
+    background-color: #e6ed91 ;
+    border-radius: 10%;
+    font-weight:bold;
+    font-style:oblique;
   }
-  
+  .update-button:hover {
+    background-color: #f5fd00; 
+  }
+
+  .delete-button {
+    padding: 10px;
+    border: 1px solid #000000;
+    margin: 5px;
+    width: 100px;
+    height: 40px;
+    background-color: #ff4d4db6 ;
+    border-radius: 10%;
+    font-weight:bold;
+    font-style:oblique;
+  }
+  .delete-button:hover {
+    background-color: #ff1d1d; 
+  }
+ 
+/* styles for modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  width: 400px;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content form label {
+  margin: 10px 0 5px;
+}
+
+.modal-content form input,
+.modal-content form textarea {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-content form button {
+  margin-top: 10px;
+}

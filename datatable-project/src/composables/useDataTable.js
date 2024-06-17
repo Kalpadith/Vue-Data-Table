@@ -66,6 +66,7 @@ export default function useDataTable() {
   const prevPage = () => {
     if (currentPage.value > 1) currentPage.value -= 1;
   };
+
   const sortTable = (key) => {
     if (sortKey.value === key) {
       sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc';
@@ -82,6 +83,10 @@ export default function useDataTable() {
     }, 300);
   };
 
+  const removeComment = (id) => {
+    comments.value = comments.value.filter(comment => comment.id !== id);
+  };
+
   return {
     comments,
     loading,
@@ -95,5 +100,6 @@ export default function useDataTable() {
     prevPage,
     sortTable,
     debounceSearch,
+    removeComment,
   };
 }
